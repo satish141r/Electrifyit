@@ -113,7 +113,7 @@ const Dashboard = () => {
         setTimeFrame({ startDate, endDate });
     };
     useEffect(() => {
-        fetch('http://localhost:4000/vehicles')
+        fetch('https://electrifyit.onrender.com/vehicles')
             .then((res) => {
                 return res.json();
             })

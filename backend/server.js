@@ -19,7 +19,10 @@ app.use(express.json());
         console.error(error);
         process.exit(1);
     })
-
+    app.get('/', (req, res) => {
+      res.send('Welcome to the ElectrifyIt API!');
+  });
+  
 // Define a schema for the vehicle
 const vehicleSchema = new mongoose.Schema({
     License_Plate: {

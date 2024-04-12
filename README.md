@@ -1,31 +1,41 @@
-# React & Tailwind CSS Starter Pack
+LIVE : https://electrifyit-gamma.vercel.app/
 
-This is a starter pack for creating React projects with Tailwind CSS configured. It uses React version **18.2** and Tailwind CSS version **3.2**.
+**1. Introduction**
+Start by providing a brief introduction to the project. Describe the purpose of the application and the problem it solves. Mention the scope of the documentation covering both the frontend and backend components.
 
-## Usage
+**2. Technology Choices**
+Frameworks and Languages
+**Node.js**: Chosen for the backend because of its non-blocking, event-driven architecture which is suitable for data-intensive applications that require real-time operation.
+**Express.js**: A minimal and flexible Node.js web application framework that provides a robust set of features to develop web and mobile applications. It simplifies the server creation process that is already available in Node.
+**React.js** (if used in the frontend): A JavaScript library for building user interfaces, particularly single-page applications where you can manage state and view transitions efficiently.
+MongoDB: A NoSQL database, chosen for its flexibility with schema design, scalability with high performance for large volumes of data, and its strong querying capabilities.
+Libraries and Tools
+**Mongoose:** An ODM (Object Data Modeling) library for MongoDB and Node.js. It manages relationships between data, provides schema validation, and is used to translate between objects in code and their representation in MongoDB.
+**CORS**: A node.js package for providing a Connect/Express middleware that can be used to enable CORS (Cross-Origin Resource Sharing) with various options.
 
-This starter pack includes a basic setup for using **Tailwind CSS with React**. To start building your own components and styles, follow these steps:
+**3. Assumptions Made**
+The application assumes that all users will have a stable internet connection.
+It is assumed that MongoDB Atlas service is always available for database operations.
+The application does not handle user authentication as it was not part of the requirements.
 
-1. Clone the repository to your local machine.
-    ```sh
-    git clone https://github.com/thepranaygupta/react-tailwind-css-starter-pack.git
-    ```
+**4. Test Cases**
+Backend
+**Unit Tests**
+Vehicle Model Test: Verify that the vehicle model correctly validates data before saving to the database (e.g., unique VIN, required fields like License Plate).
+API Routes Test: Test each API endpoint (like GET /vehicles) to ensure it returns the correct HTTP status and data format.
+javascript
+app.get('/vehicles', async (req, res) => {
+  const vehicles = await Vehicle.find(); // Fetch all vehicles
+  res.json(vehicles);
+});
+**Integration Tests**
+**Database Connection Test**: Test the database connection to ensure the application can connect and disconnect without errors.
+End-to-End API Functionality: Test the complete workflow from adding a new vehicle to retrieving it via the API.
 
-1. Install the required packages.
-    ```sh
-    cd react-tailwind-css-starter-pack
-    npm install
-    ```
 
-1. Start the development server.
-    ```sh
-    npm start
-    ```
-1. Open the project in your browser at [`http://localhost:3000`](http://localhost:3000) to view your project.
-1. Create your React components and add your styles using Tailwind classes. You can also create new CSS files and import them into your components.
+**Component Tests:** Test critical components (like vehicle list and vehicle form) to ensure they render correctly.
+Integration Tests: Simulate user interactions and API calls to verify that the frontend correctly interacts with the backend.
+**5. References**
+Official documentation for Node.js, Express, MongoDB, and any other used libraries.
+Stack Overflow for troubleshooting specific issues.
 
-The project is set up to use `postcss-cli` to process your CSS files. You can add your own `tailwind.config.js` file to customize your Tailwind setup.
-
-## Contributing
-
-Contributions are welcome! If you have any suggestions or find any issues, please feel free to open an issue or a pull request.
